@@ -1,13 +1,27 @@
 exports.SumOfArray = function(arrayOfNums){
-
-
+	var sum = 0, length = arrayOfNums.length;
+	for(var index = 0;index< length; index++){
+		sum = sum+arrayOfNums[index];
+	}
+	return sum;
 }
 
 // Sum only the unique numbers in the array.
 // Ex: If array is [2,3,3,2], the sum is 2+3=5
 
 exports.SumOfUniqueNumbers = function(arrayOfNums){
-
+	var sum = 0,length = arrayOfNums.length;
+	var arr_unique_elements = new Array();
+	for(var index=0;index<length;index++){
+		if(!arr_unique_elements.includes(arrayOfNums[index]){
+			arr_unique_elements.push(arrayOfNums[index]);
+		}
+	}
+	length = arr_unique_elements.length;
+	for(var index=0;index<length;index++){
+		sum = sum+arr_unique_elements[index];
+	}
+	return sum;
 }
 
 //2-D array exercises
@@ -15,5 +29,17 @@ exports.SumOfUniqueNumbers = function(arrayOfNums){
 // the sum of diagonal elements.
 
 exports.SumOfDiagonalCells = function(array2d){
-
+	var sum = 0, isEqual = true,length = array2d.length;
+	for(var index=0; index<length; index ++){
+		if(array2d[index].length != length){
+			isEqual = false; 
+			break;
+		}
+	}
+	if(isEqual == true){
+		for(var index=0;index<length;index++){
+			sum = sum + array2d[index][index];
+		}
+	}
+	return sum;
 }
