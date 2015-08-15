@@ -7,7 +7,7 @@ exports.ReverseString = function(str){
 			str[index] = str[index_back];
 			str[index_back] = temp;
 		}
-		str.join('');
+		str=str.join("");
 	}
 	return str;
 }
@@ -16,17 +16,27 @@ exports.ReverseString = function(str){
 // Example: SplitString("Gates,Bill;Jobs,Steve;Page,Larry") should return
 // an array ["Bill","Steve","Larry"]
 function firstName(name){
-	var index_comma = name.indexOf(',');
-	var first_name = name.substring(index_comma);
-	return first_name;
+	if(name){
+		var index_comma = name.indexOf(',');
+		var name = name.slice(index_comma+1);
+	}
+	return name;
 }
 exports.GetFirstNames = function(str){
-	var length = str.length;
-	var arr_first_name = [];
-	for(var index=0;index<length;index++){
-		arr_first_name.push(firstName(str[index]));
+	if(str){
+		var arr_first_name=[];
+		str = str.split(";");
+		if(str){
+			var length = str.length;
+			for(var index=0;index<length;index++){
+				if(str[index]){
+					arr_first_name.push(firstName(str[index]));
+				}
+			}
+		}
+		return arr_first_name;
 	}
-	return arr_first_name;
+	return str;
 }
 
 
@@ -43,6 +53,13 @@ exports.ReverseArrayOfStrings = function(arrayOfStrings){
 // Given an array of sentences, create a paragraph by concatenating all the strings and adding
 // fullstop (.) after each senetences.
 exports.CreateParagraph = function(arrayOfStrings){
-
+	if(arrayOfStrings){
+		var length = arrayOfStrings.length;
+		var paragraph="";
+		for(var index =0;index<length;index++){
+			paragraph += arrayOfStrings[index]+".";
+		}
+		return paragraph;
+	}
 }
 
