@@ -27,16 +27,18 @@ exports.SumOfUniqueNumbers = function(arrayOfNums){
 //2-D array exercises
 // Given a 2-d array, verify it is of equal dimensions and return
 // the sum of diagonal elements.
-
-exports.SumOfDiagonalCells = function(array2d){
-	var sum = 0, isEqual = true,length = array2d.length;
+function isSquare(array2d){
+	var length = array2d.length;
 	for(var index=0; index<length; index ++){
 		if(array2d[index].length != length){
-			isEqual = false; 
-			break;
+			return false;
 		}
 	}
-	if(isEqual == true){
+	return true;
+}
+exports.SumOfDiagonalCells = function(array2d){
+	var sum = 0, length = array2d.length;
+	if(isSquare(array2d)){
 		for(var index=0;index<length;index++){
 			sum = sum + array2d[index][index];
 		}
