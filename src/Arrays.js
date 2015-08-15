@@ -11,9 +11,9 @@ exports.SumOfArray = function(arrayOfNums){
 
 exports.SumOfUniqueNumbers = function(arrayOfNums){
 	var sum = 0,length = arrayOfNums.length;
-	var arr_unique_elements = new Array();
+	var arr_unique_elements = [];
 	for(var index=0;index<length;index++){
-		if(!arr_unique_elements.includes(arrayOfNums[index]){
+		if(arr_unique_elements.indexOf(arrayOfNums[index])==-1){
 			arr_unique_elements.push(arrayOfNums[index]);
 		}
 	}
@@ -42,6 +42,7 @@ exports.SumOfDiagonalCells = function(array2d){
 		for(var index=0;index<length;index++){
 			sum = sum + array2d[index][index];
 		}
+		return sum;
 	}
-	return sum;
+	return array2d;
 }
