@@ -13,7 +13,6 @@ exports.GetObjectPropertyValues = function(obj) {
 	if(obj){
 		var property_values = [];
 		for(property in obj){
-			console.log(obj[property]);
 			property_values.push(obj[property]);
 		}
 		return property_values;
